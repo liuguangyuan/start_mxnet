@@ -3,7 +3,7 @@ from mxnet import nd
 w = nd.arange(4).reshape((1,1,2,2))
 b = nd.array([1])
 data = nd.arange(9).reshape((1,1,3,3))
-out = nd.Convolution(data, w, b, kernel=w.shape[2:], num_filter=w.shape[1])
+out = nd.Convolution(data, w, b, kernel=w.shape[2:], num_filter=w.shape[0])
 
 
 out = nd.Convolution(data, w, b, kernel=w.shape[2:], num_filter=w.shape[1], stride=(2,2), pad=(1,1))
@@ -104,37 +104,3 @@ for epoch in range(5):
 	print("Epoch %d. Loss:%f, Train acc %f, Test acc %f" %(
 				epoch, train_loss/len(train_data),
 				train_acc/len(train_data), test_acc))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
